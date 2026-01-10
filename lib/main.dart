@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/home.dart';
@@ -9,7 +10,9 @@ import 'pages/profile.dart';
 
 Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   //await SharedPreferencesService().init();
   runApp(Valencia());
 }
@@ -36,9 +39,11 @@ class Valencia extends StatelessWidget {
         labelMedium: GoogleFonts.dynaPuff(),
         labelSmall: GoogleFonts.dynaPuff(),
        ),
+       
        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedLabelStyle:  GoogleFonts.dynaPuff(), 
-        unselectedLabelStyle: GoogleFonts.dynaPuff(),
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle:  GoogleFonts.dynaPuff(textStyle: const TextStyle(color: Color.fromARGB(255,54, 106, 60))),
+        unselectedLabelStyle: GoogleFonts.dynaPuff(textStyle: const TextStyle(color: Color.fromARGB(255, 113, 116, 109))),
         elevation: 0.0
        ),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 255, 102)),

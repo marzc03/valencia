@@ -19,24 +19,6 @@ class _TodayPageState extends State<TodayPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/background.png"),
-              fit: BoxFit.cover)
-            ),
-          ),
-          Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.75,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.brown,
-                ),
-              ),
-            )
-          ),
         ],
       ),
       bottomNavigationBar: Padding(
