@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "366213793866",
+    "project_id": "valencia-6bc29",
+    "storage_bucket": "valencia-6bc29.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366213793866:android:26bd67e34bcb5c0bcd7eb3",
+        "android_client_info": {
+          "package_name": "com.example.valencia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC82ZZVNVF-ykqxFb8PpOLrXGj9LSraItQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
