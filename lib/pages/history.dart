@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MyDataPage extends StatefulWidget {
-  const MyDataPage({super.key, required this.title});
+class HistoryPage extends StatefulWidget {
+  const HistoryPage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyDataPage> createState() => _MyDataPageState();
+  State<HistoryPage> createState() => _HistoryPageState();
 }
 
 
 
-class _MyDataPageState extends State<MyDataPage> with TickerProviderStateMixin {
+class _HistoryPageState extends State<HistoryPage> with TickerProviderStateMixin {
   int currentPageIndex = 1;
   late final TabController _tabController;
 
@@ -66,16 +66,19 @@ class _MyDataPageState extends State<MyDataPage> with TickerProviderStateMixin {
                     value == 0
                     ? '/home'
                     : value == 1
-                      ? '/data'
+                      ?'/today'
                       : value == 2
-                        ? '/profile'
-                        :'/home'
+                        ? '/history'
+                        : value == 3
+                          ? '/profile'
+                          :'/home'
               );
             });
           },
           items: const [
             BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'Data'),
+            BottomNavigationBarItem(icon: Icon(Icons.today_rounded), label: 'Today'),
+            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'History'),
             BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
           ]
         )

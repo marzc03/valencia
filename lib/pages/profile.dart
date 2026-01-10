@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MyProfilePage extends StatefulWidget {
-  const MyProfilePage({super.key, required this.title});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyProfilePage> createState() => _MyProfilePageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
 
 
-class _MyProfilePageState extends State<MyProfilePage> {
+class _ProfilePageState extends State<ProfilePage> {
   int currentPageIndex = 2;
 
   @override
@@ -29,16 +29,19 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     value == 0
                     ? '/home'
                     : value == 1
-                      ? '/data'
+                      ?'/today'
                       : value == 2
-                        ? '/profile'
-                        :'/home'
+                        ? '/history'
+                        : value == 3
+                          ? '/profile'
+                          :'/home'
               );
             });
           },
           items: const [
             BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'Data'),
+            BottomNavigationBarItem(icon: Icon(Icons.today_rounded), label: 'Today'),
+            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'History'),
             BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
           ]
         )

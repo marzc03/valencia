@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+class TodayPage extends StatefulWidget {
+  const TodayPage({super.key, required this.title});
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<TodayPage> createState() => _TodayPageState();
 }
 
 
 
-class _HomePageState extends State<HomePage> {
+class _TodayPageState extends State<TodayPage> {
   int currentPageIndex = 0;  
 
   @override
