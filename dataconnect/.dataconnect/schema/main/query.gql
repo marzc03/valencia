@@ -1,0 +1,209 @@
+extend type Query {
+  """
+  ✨ Look up a single `Category` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  category(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Category_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Category_FirstRow
+  ): Category @fdc_generated(from: "Category", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `NoItem` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  noItem(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: NoItem_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoItem_FirstRow
+  ): NoItem @fdc_generated(from: "NoItem", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `NoItemCategory` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  noItemCategory(
+    """
+    The key used to identify the object.
+    """
+    key: NoItemCategory_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoItemCategory_FirstRow
+  ): NoItemCategory @fdc_generated(from: "NoItemCategory", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `User` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  user(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User @fdc_generated(from: "User", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Category` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  categories(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Category_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Category_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Category_Having
+  ): [Category!]! @fdc_generated(from: "Category", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `NoItem` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  noItems(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: NoItem_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [NoItem_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: NoItem_Having
+  ): [NoItem!]! @fdc_generated(from: "NoItem", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `NoItemCategory` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  noItemCategories(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: NoItemCategory_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [NoItemCategory_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: NoItemCategory_Having
+  ): [NoItemCategory!]! @fdc_generated(from: "NoItemCategory", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `User` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  users(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: User_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [User_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: User_Having
+  ): [User!]! @fdc_generated(from: "User", purpose: QUERY_MULTIPLE)
+}

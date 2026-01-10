@@ -1,0 +1,440 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Category` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  category_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Category_Data!
+  ): Category_KeyOutput! @fdc_generated(from: "Category", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `NoItem` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  noItem_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: NoItem_Data!
+  ): NoItem_KeyOutput! @fdc_generated(from: "NoItem", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `NoItemCategory` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  noItemCategory_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: NoItemCategory_Data!
+  ): NoItemCategory_KeyOutput! @fdc_generated(from: "NoItemCategory", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `User` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Category` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  category_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Category_Data!]!
+  ): [Category_KeyOutput!]! @fdc_generated(from: "Category", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `NoItem` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  noItem_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [NoItem_Data!]!
+  ): [NoItem_KeyOutput!]! @fdc_generated(from: "NoItem", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `NoItemCategory` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  noItemCategory_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [NoItemCategory_Data!]!
+  ): [NoItemCategory_KeyOutput!]! @fdc_generated(from: "NoItemCategory", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `User` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Category` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Category`.
+  """
+  category_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Category_Data!
+  ): Category_KeyOutput! @fdc_generated(from: "Category", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `NoItem` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `NoItem`.
+  """
+  noItem_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: NoItem_Data!
+  ): NoItem_KeyOutput! @fdc_generated(from: "NoItem", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `NoItemCategory` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `NoItemCategory`.
+  """
+  noItemCategory_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: NoItemCategory_Data!
+  ): NoItemCategory_KeyOutput! @fdc_generated(from: "NoItemCategory", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `User` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Category` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Category`.
+  """
+  category_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Category_Data!]!
+  ): [Category_KeyOutput!]! @fdc_generated(from: "Category", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `NoItem` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `NoItem`.
+  """
+  noItem_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [NoItem_Data!]!
+  ): [NoItem_KeyOutput!]! @fdc_generated(from: "NoItem", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `NoItemCategory` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `NoItemCategory`.
+  """
+  noItemCategory_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [NoItemCategory_Data!]!
+  ): [NoItemCategory_KeyOutput!]! @fdc_generated(from: "NoItemCategory", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `User` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Category` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Category` or `null` if not found.
+  """
+  category_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Category_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Category_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Category_Data!
+  ): Category_KeyOutput @fdc_generated(from: "Category", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `NoItem` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `NoItem` or `null` if not found.
+  """
+  noItem_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: NoItem_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoItem_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: NoItem_Data!
+  ): NoItem_KeyOutput @fdc_generated(from: "NoItem", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `NoItemCategory` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `NoItemCategory` or `null` if not found.
+  """
+  noItemCategory_update(
+    """
+    The key used to identify the object.
+    """
+    key: NoItemCategory_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoItemCategory_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: NoItemCategory_Data!
+  ): NoItemCategory_KeyOutput @fdc_generated(from: "NoItemCategory", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `User` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `User` or `null` if not found.
+  """
+  user_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: User_Data!
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Category` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  category_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Category_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Category_Data!
+  ): Int! @fdc_generated(from: "Category", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `NoItem` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  noItem_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: NoItem_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: NoItem_Data!
+  ): Int! @fdc_generated(from: "NoItem", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `NoItemCategory` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  noItemCategory_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: NoItemCategory_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: NoItemCategory_Data!
+  ): Int! @fdc_generated(from: "NoItemCategory", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `User` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  user_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: User_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: User_Data!
+  ): Int! @fdc_generated(from: "User", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Category` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  category_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Category_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Category_FirstRow
+  ): Category_KeyOutput @fdc_generated(from: "Category", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `NoItem` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  noItem_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: NoItem_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoItem_FirstRow
+  ): NoItem_KeyOutput @fdc_generated(from: "NoItem", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `NoItemCategory` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  noItemCategory_delete(
+    """
+    The key used to identify the object.
+    """
+    key: NoItemCategory_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: NoItemCategory_FirstRow
+  ): NoItemCategory_KeyOutput @fdc_generated(from: "NoItemCategory", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `User` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  user_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Category` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  category_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Category_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Category", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `NoItem` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  noItem_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: NoItem_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "NoItem", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `NoItemCategory` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  noItemCategory_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: NoItemCategory_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "NoItemCategory", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `User` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  user_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: User_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "User", purpose: DELETE_MULTIPLE)
+}

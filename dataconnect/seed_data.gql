@@ -1,0 +1,60 @@
+mutation CreateSeedData @transaction @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users.") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      displayName: "demouser1",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      displayName: "demouser2",
+      createdAt: "2024-01-01T00:00:00Z"
+    }
+  ])
+  category_insertMany(data: [
+    {
+      id: "650e8400-e29b-41d4-a716-446655440002",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      name: "Category 1",
+      createdAt: "2024-01-01T00:00:00Z",
+      isDefault: true,
+      description: "Example category 1"
+    },
+    {
+      id: "750e8400-e29b-41d4-a716-446655440003",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      name: "Category 2",
+      createdAt: "2024-01-01T00:00:00Z",
+      isDefault: false,
+      description: "Example category 2"
+    }
+  ])
+  noItem_insertMany(data: [
+    {
+      id: "850e8400-e29b-41d4-a716-446655440004",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      createdAt: "2024-01-01T00:00:00Z",
+      description: "NoItem 1 for demouser1",
+      isPublic: true
+    },
+    {
+      id: "950e8400-e29b-41d4-a716-446655440005",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      createdAt: "2024-01-01T00:00:00Z",
+      description: "NoItem 2 for demouser2",
+      isPublic: false
+    }
+  ])
+  noItemCategory_insertMany(data: [
+    {
+      noItemId: "850e8400-e29b-41d4-a716-446655440004",
+      categoryId: "650e8400-e29b-41d4-a716-446655440002",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      noItemId: "950e8400-e29b-41d4-a716-446655440005",
+      categoryId: "750e8400-e29b-41d4-a716-446655440003",
+      createdAt: "2024-01-01T00:00:00Z"
+    }
+  ])
+}

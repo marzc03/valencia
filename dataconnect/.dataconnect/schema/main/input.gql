@@ -1,0 +1,1108 @@
+"""
+✨ `Category_KeyOutput` returns the primary key fields of table type `Category`.
+
+It has the same format as `Category_Key`, but is only used as mutation return value.
+"""
+scalar Category_KeyOutput
+"""
+✨ `NoItem_KeyOutput` returns the primary key fields of table type `NoItem`.
+
+It has the same format as `NoItem_Key`, but is only used as mutation return value.
+"""
+scalar NoItem_KeyOutput
+"""
+✨ `NoItemCategory_KeyOutput` returns the primary key fields of table type `NoItemCategory`.
+
+It has the same format as `NoItemCategory_Key`, but is only used as mutation return value.
+"""
+scalar NoItemCategory_KeyOutput
+"""
+✨ `User_KeyOutput` returns the primary key fields of table type `User`.
+
+It has the same format as `User_Key`, but is only used as mutation return value.
+"""
+scalar User_KeyOutput
+"""
+✨ Generated data input type for table 'Category'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Category_Data {
+  """
+  ✨ Generated from Field `Category`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Category`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Category`.`userId` of type `UUID`
+  """
+  userId: UUID
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Category`.`userId` of type `UUID`)
+  """
+  userId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Category`.`user` of type `User`
+  """
+  user: User_Key
+  """
+  ✨ Generated from Field `Category`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `Category`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `Category`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `Category`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `Category`.`description` of type `String`
+  """
+  description: String
+  """
+  ✨ `_expr` server value variant of `description` (✨ Generated from Field `Category`.`description` of type `String`)
+  """
+  description_expr: String_Expr
+  """
+  ✨ Generated from Field `Category`.`isDefault` of type `Boolean`
+  """
+  isDefault: Boolean
+  """
+  ✨ `_expr` server value variant of `isDefault` (✨ Generated from Field `Category`.`isDefault` of type `Boolean`)
+  """
+  isDefault_expr: Boolean_Expr
+  """
+  ✨ Generated from Field `Category`.`name` of type `String!`
+  """
+  name: String
+  """
+  ✨ `_expr` server value variant of `name` (✨ Generated from Field `Category`.`name` of type `String!`)
+  """
+  name_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Category'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Category_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Category_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Category_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Category_Filter!]
+  """
+  ✨ Generated from Field `Category`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Category`.`userId` of type `UUID`
+  """
+  userId: UUID_Filter
+  """
+  ✨ Generated from Field `Category`.`user` of type `User`
+  """
+  user: User_Filter
+  """
+  ✨ Generated from Field `Category`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `Category`.`description` of type `String`
+  """
+  description: String_Filter
+  """
+  ✨ Generated from Field `Category`.`isDefault` of type `Boolean`
+  """
+  isDefault: Boolean_Filter
+  """
+  ✨ Generated from Field `Category`.`name` of type `String!`
+  """
+  name: String_Filter
+  """
+  ✨ Generated from Field `Category`.`noItemCategories_on_category` of type `[NoItemCategory!]!`
+  """
+  noItemCategories_on_category: NoItemCategory_ListFilter
+  """
+  ✨ Generated from Field `Category`.`noItems_via_NoItemCategory` of type `[NoItem!]!`
+  """
+  noItems_via_NoItemCategory: NoItem_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Category'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Category_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Category_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Category_Filter
+}
+"""
+✨ Generated having input type for table 'Category'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Category_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [Category_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: Category_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [Category_Having!]
+  """
+  ✨ Generated from Field `Category`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`description_count` of type `Int!`
+  """
+  description_count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`isDefault_count` of type `Int!`
+  """
+  isDefault_count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`name_count` of type `Int!`
+  """
+  name_count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
+  """
+  ✨ Generated from Field `Category`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `Category`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'Category'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Category_Key {
+  """
+  ✨ Generated from Field `Category`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Category`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Category'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Category_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Category_Filter
+}
+"""
+✨ Generated order input type for table 'Category'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Category_Order {
+  """
+  ✨ Generated from Field `Category`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`userId` of type `UUID`
+  """
+  userId: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`user` of type `User`
+  """
+  user: User_Order
+  """
+  ✨ Generated from Field `Category`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`description` of type `String`
+  """
+  description: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`isDefault` of type `Boolean`
+  """
+  isDefault: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`name` of type `String!`
+  """
+  name: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`description_count` of type `Int!`
+  """
+  description_count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`isDefault_count` of type `Int!`
+  """
+  isDefault_count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`name_count` of type `Int!`
+  """
+  name_count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: OrderDirection
+  """
+  ✨ Generated from Field `Category`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'NoItem'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input NoItem_Data {
+  """
+  ✨ Generated from Field `NoItem`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `NoItem`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `NoItem`.`userId` of type `UUID`
+  """
+  userId: UUID
+  """
+  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `NoItem`.`userId` of type `UUID`)
+  """
+  userId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `NoItem`.`user` of type `User`
+  """
+  user: User_Key
+  """
+  ✨ Generated from Field `NoItem`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `NoItem`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `NoItem`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `NoItem`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `NoItem`.`description` of type `String!`
+  """
+  description: String
+  """
+  ✨ `_expr` server value variant of `description` (✨ Generated from Field `NoItem`.`description` of type `String!`)
+  """
+  description_expr: String_Expr
+  """
+  ✨ Generated from Field `NoItem`.`isPublic` of type `Boolean!`
+  """
+  isPublic: Boolean
+  """
+  ✨ `_expr` server value variant of `isPublic` (✨ Generated from Field `NoItem`.`isPublic` of type `Boolean!`)
+  """
+  isPublic_expr: Boolean_Expr
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt` of type `Timestamp`
+  """
+  lastRevisitedAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `lastRevisitedAt` (✨ Generated from Field `NoItem`.`lastRevisitedAt` of type `Timestamp`)
+  """
+  lastRevisitedAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `lastRevisitedAt` (✨ Generated from Field `NoItem`.`lastRevisitedAt` of type `Timestamp`)
+  """
+  lastRevisitedAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `lastRevisitedAt` (✨ Generated from Field `NoItem`.`lastRevisitedAt` of type `Timestamp`)
+  """
+  lastRevisitedAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `NoItem`.`reason` of type `String`
+  """
+  reason: String
+  """
+  ✨ `_expr` server value variant of `reason` (✨ Generated from Field `NoItem`.`reason` of type `String`)
+  """
+  reason_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'NoItem'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input NoItem_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [NoItem_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: NoItem_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [NoItem_Filter!]
+  """
+  ✨ Generated from Field `NoItem`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `NoItem`.`userId` of type `UUID`
+  """
+  userId: UUID_Filter
+  """
+  ✨ Generated from Field `NoItem`.`user` of type `User`
+  """
+  user: User_Filter
+  """
+  ✨ Generated from Field `NoItem`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `NoItem`.`description` of type `String!`
+  """
+  description: String_Filter
+  """
+  ✨ Generated from Field `NoItem`.`isPublic` of type `Boolean!`
+  """
+  isPublic: Boolean_Filter
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt` of type `Timestamp`
+  """
+  lastRevisitedAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `NoItem`.`reason` of type `String`
+  """
+  reason: String_Filter
+  """
+  ✨ Generated from Field `NoItem`.`noItemCategories_on_noItem` of type `[NoItemCategory!]!`
+  """
+  noItemCategories_on_noItem: NoItemCategory_ListFilter
+  """
+  ✨ Generated from Field `NoItem`.`categories_via_NoItemCategory` of type `[Category!]!`
+  """
+  categories_via_NoItemCategory: Category_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'NoItem'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input NoItem_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [NoItem_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: NoItem_Filter
+}
+"""
+✨ Generated having input type for table 'NoItem'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input NoItem_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [NoItem_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: NoItem_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [NoItem_Having!]
+  """
+  ✨ Generated from Field `NoItem`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`description_count` of type `Int!`
+  """
+  description_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`isPublic_count` of type `Int!`
+  """
+  isPublic_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt_count` of type `Int!`
+  """
+  lastRevisitedAt_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`reason_count` of type `Int!`
+  """
+  reason_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`userId_count` of type `Int!`
+  """
+  userId_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItem`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt_min` of type `Timestamp`
+  """
+  lastRevisitedAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `NoItem`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt_max` of type `Timestamp`
+  """
+  lastRevisitedAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'NoItem'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input NoItem_Key {
+  """
+  ✨ Generated from Field `NoItem`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `NoItem`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'NoItem'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input NoItem_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: NoItem_Filter
+}
+"""
+✨ Generated order input type for table 'NoItem'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input NoItem_Order {
+  """
+  ✨ Generated from Field `NoItem`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`userId` of type `UUID`
+  """
+  userId: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`user` of type `User`
+  """
+  user: User_Order
+  """
+  ✨ Generated from Field `NoItem`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`description` of type `String!`
+  """
+  description: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`isPublic` of type `Boolean!`
+  """
+  isPublic: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt` of type `Timestamp`
+  """
+  lastRevisitedAt: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`reason` of type `String`
+  """
+  reason: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`description_count` of type `Int!`
+  """
+  description_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`isPublic_count` of type `Int!`
+  """
+  isPublic_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt_count` of type `Int!`
+  """
+  lastRevisitedAt_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`reason_count` of type `Int!`
+  """
+  reason_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`userId_count` of type `Int!`
+  """
+  userId_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt_min` of type `Timestamp`
+  """
+  lastRevisitedAt_min: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: OrderDirection
+  """
+  ✨ Generated from Field `NoItem`.`lastRevisitedAt_max` of type `Timestamp`
+  """
+  lastRevisitedAt_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'NoItemCategory'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input NoItemCategory_Data {
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItemId` of type `UUID!`
+  """
+  noItemId: UUID
+  """
+  ✨ `_expr` server value variant of `noItemId` (✨ Generated from Field `NoItemCategory`.`noItemId` of type `UUID!`)
+  """
+  noItemId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `NoItemCategory`.`categoryId` of type `UUID!`
+  """
+  categoryId: UUID
+  """
+  ✨ `_expr` server value variant of `categoryId` (✨ Generated from Field `NoItemCategory`.`categoryId` of type `UUID!`)
+  """
+  categoryId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `NoItemCategory`.`category` of type `Category!`
+  """
+  category: Category_Key
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItem` of type `NoItem!`
+  """
+  noItem: NoItem_Key
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `NoItemCategory`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `NoItemCategory`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `NoItemCategory`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+}
+"""
+✨ Generated filter input type for table 'NoItemCategory'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input NoItemCategory_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [NoItemCategory_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: NoItemCategory_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [NoItemCategory_Filter!]
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItemId` of type `UUID!`
+  """
+  noItemId: UUID_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`categoryId` of type `UUID!`
+  """
+  categoryId: UUID_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`category` of type `Category!`
+  """
+  category: Category_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItem` of type `NoItem!`
+  """
+  noItem: NoItem_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+}
+"""
+✨ Generated first-row input type for table 'NoItemCategory'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input NoItemCategory_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [NoItemCategory_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: NoItemCategory_Filter
+}
+"""
+✨ Generated having input type for table 'NoItemCategory'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input NoItemCategory_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [NoItemCategory_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: NoItemCategory_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [NoItemCategory_Having!]
+  """
+  ✨ Generated from Field `NoItemCategory`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`categoryId_count` of type `Int!`
+  """
+  categoryId_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItemId_count` of type `Int!`
+  """
+  noItemId_count: Int_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'NoItemCategory'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input NoItemCategory_Key {
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItemId` of type `UUID!`
+  """
+  noItemId: UUID
+  """
+  ✨ `_expr` server value variant of `noItemId` (✨ Generated from Field `NoItemCategory`.`noItemId` of type `UUID!`)
+  """
+  noItemId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `NoItemCategory`.`categoryId` of type `UUID!`
+  """
+  categoryId: UUID
+  """
+  ✨ `_expr` server value variant of `categoryId` (✨ Generated from Field `NoItemCategory`.`categoryId` of type `UUID!`)
+  """
+  categoryId_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'NoItemCategory'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input NoItemCategory_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: NoItemCategory_Filter
+}
+"""
+✨ Generated order input type for table 'NoItemCategory'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input NoItemCategory_Order {
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItemId` of type `UUID!`
+  """
+  noItemId: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`categoryId` of type `UUID!`
+  """
+  categoryId: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`category` of type `Category!`
+  """
+  category: Category_Order
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItem` of type `NoItem!`
+  """
+  noItem: NoItem_Order
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`categoryId_count` of type `Int!`
+  """
+  categoryId_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`noItemId_count` of type `Int!`
+  """
+  noItemId_count: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: OrderDirection
+  """
+  ✨ Generated from Field `NoItemCategory`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: OrderDirection
+}
+"""
+✨ Generated data input type for table 'User'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input User_Data {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `User`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `createdAt` (✨ Generated from Field `User`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `createdAt` (✨ Generated from Field `User`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_time: Timestamp_Relative
+  """
+  ✨ `_update` server value variant of `createdAt` (✨ Generated from Field `User`.`createdAt` of type `Timestamp!`)
+  """
+  createdAt_update: [Timestamp_Update!]
+  """
+  ✨ Generated from Field `User`.`displayName` of type `String!`
+  """
+  displayName: String
+  """
+  ✨ `_expr` server value variant of `displayName` (✨ Generated from Field `User`.`displayName` of type `String!`)
+  """
+  displayName_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`email` of type `String`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `User`.`email` of type `String`)
+  """
+  email_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`photoUrl` of type `String`
+  """
+  photoUrl: String
+  """
+  ✨ `_expr` server value variant of `photoUrl` (✨ Generated from Field `User`.`photoUrl` of type `String`)
+  """
+  photoUrl_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'User'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input User_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [User_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: User_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [User_Filter!]
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `User`.`displayName` of type `String!`
+  """
+  displayName: String_Filter
+  """
+  ✨ Generated from Field `User`.`email` of type `String`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `User`.`photoUrl` of type `String`
+  """
+  photoUrl: String_Filter
+  """
+  ✨ Generated from Field `User`.`categories_on_user` of type `[Category!]!`
+  """
+  categories_on_user: Category_ListFilter
+  """
+  ✨ Generated from Field `User`.`noItems_on_user` of type `[NoItem!]!`
+  """
+  noItems_on_user: NoItem_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'User'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input User_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [User_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: User_Filter
+}
+"""
+✨ Generated having input type for table 'User'. This input allows you to filter groups during aggregate queries using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input User_Having {
+  """
+  Apply multiple Having conditions using `AND` logic.
+  """
+  _and: [User_Having!]
+  """
+  Whether to apply DISTINCT to the aggregate function.
+  """
+  _distinct: Boolean
+  """
+  Negate the result of the provided Having condition.
+  """
+  _not: User_Having
+  """
+  Apply multiple Having conditions using `OR` logic.
+  """
+  _or: [User_Having!]
+  """
+  ✨ Generated from Field `User`.`_count` of type `Int!`
+  """
+  _count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`displayName_count` of type `Int!`
+  """
+  displayName_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`email_count` of type `Int!`
+  """
+  email_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`id_count` of type `Int!`
+  """
+  id_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`photoUrl_count` of type `Int!`
+  """
+  photoUrl_count: Int_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: Timestamp_Filter
+  """
+  ✨ Generated from Field `User`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: Timestamp_Filter
+}
+"""
+✨ Generated key input type for table 'User'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input User_Key {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'User'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input User_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: User_Filter
+}
+"""
+✨ Generated order input type for table 'User'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input User_Order {
+  """
+  ✨ Generated from Field `User`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `User`.`createdAt` of type `Timestamp!`
+  """
+  createdAt: OrderDirection
+  """
+  ✨ Generated from Field `User`.`displayName` of type `String!`
+  """
+  displayName: OrderDirection
+  """
+  ✨ Generated from Field `User`.`email` of type `String`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `User`.`photoUrl` of type `String`
+  """
+  photoUrl: OrderDirection
+  """
+  ✨ Generated from Field `User`.`_count` of type `Int!`
+  """
+  _count: OrderDirection
+  """
+  ✨ Generated from Field `User`.`createdAt_count` of type `Int!`
+  """
+  createdAt_count: OrderDirection
+  """
+  ✨ Generated from Field `User`.`displayName_count` of type `Int!`
+  """
+  displayName_count: OrderDirection
+  """
+  ✨ Generated from Field `User`.`email_count` of type `Int!`
+  """
+  email_count: OrderDirection
+  """
+  ✨ Generated from Field `User`.`id_count` of type `Int!`
+  """
+  id_count: OrderDirection
+  """
+  ✨ Generated from Field `User`.`photoUrl_count` of type `Int!`
+  """
+  photoUrl_count: OrderDirection
+  """
+  ✨ Generated from Field `User`.`createdAt_min` of type `Timestamp`
+  """
+  createdAt_min: OrderDirection
+  """
+  ✨ Generated from Field `User`.`createdAt_max` of type `Timestamp`
+  """
+  createdAt_max: OrderDirection
+}

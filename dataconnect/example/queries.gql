@@ -1,0 +1,43 @@
+mutation CreateDefaultCategory @auth(level: USER) {
+  category_insert(data: {
+    name: "Default",
+    description: "Default category for new users",
+    isDefault: true,
+    createdAt_expr: "request.time",
+    userId_expr: "auth.uid"
+  })
+}
+
+query ListNoItems @auth(level: USER) {
+  noItems(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    description
+    isPublic
+    reason
+    lastRevisitedAt
+    categories_via_NoItemCategory {
+      id
+      name
+    }
+  }
+}
+
+mutation CreateNoItem($description: String!, $isPublic: Boolean!, $reason: String, $categoryIds: [UUID!]) @auth(level: USER) {
+  noItem_insert(data: {
+    description: $description,
+    isPublic: $isPublic,
+    reason: $reason,
+    createdAt_expr: "request.time",
+    userId_expr: "auth.uid"
+  }) {
+    id
+  }
+}
+
+mutation AddNoItemToCategory($noItemId: UUID!, $categoryId: UUID!) @auth(level: USER) {
+  noItemCategory_insert(data: {
+    noItemId: $noItemId,
+    categoryId: $categoryId,
+    createdAt_expr: "request.time"
+  })
+}

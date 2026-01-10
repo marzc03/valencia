@@ -1,0 +1,29 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type NoItem @table {
+  description: String!
+  createdAt: Timestamp!
+  isPublic: Boolean!
+  reason: String
+  lastRevisitedAt: Timestamp
+  user: User
+}
+
+type Category @table {
+  name: String!
+  createdAt: Timestamp!
+  description: String
+  isDefault: Boolean
+  user: User
+}
+
+type NoItemCategory @table(key: ["noItem", "category"]) {
+  createdAt: Timestamp!
+  noItem: NoItem!
+  category: Category!
+}

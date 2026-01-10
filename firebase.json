@@ -1,1 +1,33 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"valencia-6bc29","appId":"1:366213793866:android:26bd67e34bcb5c0bcd7eb3","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"valencia-6bc29","configurations":{"android":"1:366213793866:android:26bd67e34bcb5c0bcd7eb3","ios":"1:366213793866:ios:f9ccffc3200e0d64cd7eb3","macos":"1:366213793866:ios:f9ccffc3200e0d64cd7eb3","web":"1:366213793866:web:cd8699e5d830a1f5cd7eb3","windows":"1:366213793866:web:3e6574947dad2954cd7eb3"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "valencia-6bc29",
+          "appId": "1:366213793866:android:26bd67e34bcb5c0bcd7eb3",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "valencia-6bc29",
+          "configurations": {
+            "android": "1:366213793866:android:26bd67e34bcb5c0bcd7eb3",
+            "ios": "1:366213793866:ios:f9ccffc3200e0d64cd7eb3",
+            "macos": "1:366213793866:ios:f9ccffc3200e0d64cd7eb3",
+            "web": "1:366213793866:web:cd8699e5d830a1f5cd7eb3",
+            "windows": "1:366213793866:web:3e6574947dad2954cd7eb3"
+          }
+        }
+      }
+    }
+  },
+  "emulators": {
+    "dataconnect": {
+      "dataDir": "dataconnect/.dataconnect/pgliteData"
+    }
+  },
+  "dataconnect": {
+    "source": "dataconnect"
+  }
+}
