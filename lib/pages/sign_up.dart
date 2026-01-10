@@ -18,6 +18,18 @@ class _SignUpPageState extends State<SignUpPage>{
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
 
+
+  //sign up method
+  void signUp(){
+    /*
+    todo: implement login functionality
+
+    */
+
+    //navigate to home page after login
+    Navigator.pushNamed(context, '/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +69,7 @@ class _SignUpPageState extends State<SignUpPage>{
             obscureText: true,
           ),
           //sign up button
-          CustButton(buttonText: 'Sign up', onTap: () {}),
+          CustButton(buttonText: 'Sign up', onTap: () { signUp(); }),
           //return to sign in button
           Text('Already a member?',
             style: TextStyle(

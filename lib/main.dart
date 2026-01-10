@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:valencia/auth/login_or_register.dart';
 import 'themes/theme_provider.dart';
-import 'auth/login_or_register.dart';
+import 'pages/home.dart';
 import 'pages/today.dart';
 import 'pages/history.dart';
 import 'pages/profile.dart';

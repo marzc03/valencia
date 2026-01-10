@@ -17,6 +17,17 @@ class _LoginPageState extends State<LoginPage>{
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  //login method
+  void login(){
+    /*
+    todo: implement login functionality
+
+    */
+
+    //navigate to home page after login
+    Navigator.pushNamed(context, '/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +61,7 @@ class _LoginPageState extends State<LoginPage>{
             obscureText: true,
           ),
           //sign in button
-          CustButton(buttonText: 'Sign in', onTap: () {}),
+          CustButton(buttonText: 'Sign in', onTap: () { login(); }),
           //register button
           Text('Not a member?',
             style: TextStyle(
