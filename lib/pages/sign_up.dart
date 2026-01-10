@@ -67,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage>{
           ),
           GestureDetector(
             onTap: widget.onTap,
-            child: Text('Return to Sign In',
+            child: Text('Login now',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
