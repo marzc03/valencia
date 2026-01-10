@@ -1,5 +1,5 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+//import 'package:firebase_core/firebase_core.dart';
+//import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'themes/theme_provider.dart';
@@ -34,7 +34,9 @@ class Valencia extends StatelessWidget {
       title: 'Valencia: Nutrition Tracker',
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeProvider>(context).themeData,
-      home: const LoginPage(),
+      home:  LoginPage(
+        onTap: () {},
+      ),
       routes: {
         '/home': (context) => const HomePage(title: 'Home'),
         '/today': (context) => const TodayPage (title: 'Today'),
