@@ -12,7 +12,7 @@ class TodayPage extends StatefulWidget {
 
 
 class _TodayPageState extends State<TodayPage> {
-  int currentPageIndex = 0;  
+  int currentPageIndex = 1;  
 
   @override
   Widget build(BuildContext context) {

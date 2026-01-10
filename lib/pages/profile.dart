@@ -11,7 +11,7 @@ class ProfilePage extends StatefulWidget {
 
 
 class _ProfilePageState extends State<ProfilePage> {
-  int currentPageIndex = 2;
+  int currentPageIndex = 3;
 
   @override
   Widget build(BuildContext context) {

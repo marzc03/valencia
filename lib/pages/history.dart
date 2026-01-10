@@ -11,7 +11,7 @@ class HistoryPage extends StatefulWidget {
 
 
 class _HistoryPageState extends State<HistoryPage> with TickerProviderStateMixin {
-  int currentPageIndex = 1;
+  int currentPageIndex = 2;
   late final TabController _tabController;
 
   @override
