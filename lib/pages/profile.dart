@@ -16,36 +16,59 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Profile'),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 20.0),
-        child: BottomNavigationBar(
-          currentIndex: currentPageIndex,
-          onTap: (value) {
-            setState(() {
-              currentPageIndex = value;
-              Navigator.pushNamed(
-                context,
-                    value == 0
-                    ? '/home'
-                    : value == 1
-                      ?'/today'
-                      : value == 2
-                        ? '/history'
-                        : value == 3
-                          ? '/profile'
-                          :'/home'
-              );
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.today_rounded), label: 'Today'),
-            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'History'),
-            BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
+        body: Stack(
+          children: [
+            Positioned(
+              top: 7,
+              right: 7,
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/settings_page'
+                  );
+                }, 
+                icon: Icon(Icons.settings),
+              ),
+            ),
+            Column(
+              children:  [
+                Center(
+                  child: Text('Profile'),
+                )
+              ]
+            ),
           ]
-        )
-      ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
+          child: BottomNavigationBar(
+            currentIndex: currentPageIndex,
+            onTap: (value) {
+              setState(() {
+                currentPageIndex = value;
+                Navigator.pushNamed(
+                  context,
+                      value == 0
+                      ? '/home'
+                      : value == 1
+                        ?'/today'
+                        : value == 2
+                          ? '/history'
+                          : value == 3
+                            ? '/profile'
+                            :'/home'
+                );
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.today_rounded), label: 'Today'),
+              BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'History'),
+              BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
+            ]
+          )
+        ),
     );
   }
 }

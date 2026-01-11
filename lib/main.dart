@@ -8,7 +8,7 @@ import 'pages/home.dart';
 import 'pages/today.dart';
 import 'pages/history.dart';
 import 'pages/profile.dart';
-
+import 'pages/settings.dart';
 
 Future <void> main() async {
   /*
@@ -40,6 +40,7 @@ class Valencia extends StatelessWidget {
         '/today': (context) => const TodayPage (title: 'Today'),
         '/history': (context) => const HistoryPage (title: 'History'),
         '/profile': (context) => const ProfilePage (title: 'Profile'),
+        '/settings_page': (context) => const Settings (title: 'Settings'),
       },
     );
   }
