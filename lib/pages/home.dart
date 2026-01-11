@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:valencia/components/cust_text_field.dart';
 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
   final String title;
+  
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -13,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPageIndex = 0;  
-
+  final TextEditingController foodNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +36,26 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(30),
                   color: Colors.brown,
                 ),
+                child: Column(
+                  children: [
+                    CustTextField(
+                      controller: foodNameController, 
+                      hintText: 'Enter food name', 
+                      obscureText: false
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                         // Handle switch to manual input
+                      },
+                      child: Text('Switch to manual input',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                   )
+                  ],
+                )
               ),
             )
           ),
