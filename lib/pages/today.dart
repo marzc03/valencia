@@ -11,7 +11,7 @@ FoodItem cookie = FoodItem(
   fat: 3,
   carbs: 4,
 );
-
+int exerciseMinutes = 10;
 List<int> calories = [cookie.getCalories()];
 List<num> protein = [cookie.getProtein()];
 List<num> fat = [cookie.getFat()];
@@ -119,13 +119,13 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                       PieChartData(
                         sections: [
                           PieChartSectionData(
-                            value: (sum(protein) / NutritionAlgorithm.proteinNeeded() * 100),
+                            value: (sum(protein) / NutritionAlgorithm.proteinNeeded(exerciseMinutes) * 100),
                             title: 'Protein',
                             color: Colors.red,
                           ),
                           PieChartSectionData(
                             value:
-                                (1 - sum(protein) / NutritionAlgorithm.proteinNeeded() * 100),
+                                (1 - sum(protein) / NutritionAlgorithm.proteinNeeded(exerciseMinutes) * 100),
                             title: '',
                             color: Colors.grey,
                           ),
@@ -146,12 +146,12 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                       PieChartData(
                         sections: [
                           PieChartSectionData(
-                            value: (sum(fat) / NutritionAlgorithm.getFat() * 100),
+                            value: (sum(fat) / NutritionAlgorithm.getFat(exerciseMinutes) * 100),
                             title: 'Fat',
                             color: Colors.yellow,
                           ),
                           PieChartSectionData(
-                            value: (1 - sum(fat) / NutritionAlgorithm.getFat() * 100),
+                            value: (1 - sum(fat) / NutritionAlgorithm.getFat(exerciseMinutes) * 100),
                             title: '',
                             color: Colors.grey,
                           ),
@@ -171,13 +171,13 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                       PieChartData(
                         sections: [
                           PieChartSectionData(
-                            value: (sum(carbs) / NutritionAlgorithm.getCarbs() * 100),
+                            value: (sum(carbs) / NutritionAlgorithm.getCarbs(exerciseMinutes) * 100),
                             title: 'Carbs',
                             color: Colors.green,
                           ),
                           PieChartSectionData(
                             value:
-                                (1 - sum(carbs) /NutritionAlgorithm.getCarbs() * 100),
+                                (1 - sum(carbs) /NutritionAlgorithm.getCarbs(exerciseMinutes) * 100),
                             title: '',
                             color: Colors.grey,
                           ),
