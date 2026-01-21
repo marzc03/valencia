@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../nutrition_algorithm.dart';
+import '../user.dart';
+
 //Testing
 import '../food_item.dart';
+User testUser = User(age: 17, w: 110, h: 67, activityLevel: ActivityLevel.moderatelyActive, sex: Sex.female, mode: Mode.recomposition, units: Units.imperial);
+NutritionAlgorithm alg = NutritionAlgorithm(testUser);
 
 FoodItem cookie = FoodItem(
   name: 'cookie',
@@ -11,6 +15,8 @@ FoodItem cookie = FoodItem(
   fat: 3,
   carbs: 4,
 );
+
+
 int exerciseMinutes = 10;
 List<int> calories = [cookie.getCalories()];
 List<num> protein = [cookie.getProtein()];
@@ -33,6 +39,7 @@ int sumCal(List<int> input) {
   }
   return total;
 }
+//end of test stuff
 
 class TodayPage extends StatefulWidget {
   const TodayPage({super.key, required this.title});
@@ -119,14 +126,11 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                       PieChartData(
                         sections: [
                           PieChartSectionData(
-                            value: (sum(protein) / NutritionAlgorithm.proteinNeeded(exerciseMinutes) * 100),
-                            title: 'Protein',
                             color: Colors.red,
                           ),
                           PieChartSectionData(
                             value:
-                                (1 - sum(protein) / NutritionAlgorithm.proteinNeeded(exerciseMinutes) * 100),
-                            title: '',
+                                (1 - (sum(protein) / alg.proteinNeeded(exerciseMinutes) * 100)),
                             color: Colors.grey,
                           ),
                         ],
@@ -146,13 +150,13 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                       PieChartData(
                         sections: [
                           PieChartSectionData(
-                            value: (sum(fat) / NutritionAlgorithm.getFat(exerciseMinutes) * 100),
-                            title: 'Fat',
+                            value: (sum(fat) / alg.fatNeeded(exerciseMinutes) * 100),
+                        
                             color: Colors.yellow,
                           ),
                           PieChartSectionData(
-                            value: (1 - sum(fat) / NutritionAlgorithm.getFat(exerciseMinutes) * 100),
-                            title: '',
+                            value: (1 - (sum(fat) / alg.fatNeeded(exerciseMinutes) * 100)),
+                       
                             color: Colors.grey,
                           ),
                         ],
@@ -171,13 +175,13 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                       PieChartData(
                         sections: [
                           PieChartSectionData(
-                            value: (sum(carbs) / NutritionAlgorithm.getCarbs(exerciseMinutes) * 100),
-                            title: 'Carbs',
+                            value: (sum(carbs) / alg.carbsNeeded(exerciseMinutes) * 100),
+      
                             color: Colors.green,
                           ),
                           PieChartSectionData(
                             value:
-                                (1 - sum(carbs) /NutritionAlgorithm.getCarbs(exerciseMinutes) * 100),
+                                (1 - (sum(carbs) /alg.carbsNeeded(exerciseMinutes) * 100)),
                             title: '',
                             color: Colors.grey,
                           ),

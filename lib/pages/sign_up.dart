@@ -37,15 +37,7 @@ class _SignUpPageState extends State<SignUpPage>{
     Navigator.pushNamed(context, '/home');
 
     //create user object
-    User newUser = User(
-        age: int.parse(ageController.text),
-        w: double.parse(weightController.text),
-        h: double.parse(heightController.text),
-        activityLevel: ActivityLevel.sedentary, // Placeholder
-        sex: Sex.male, // Placeholder
-        mode: Mode.maintenance,
-        units: "metric" // Placeholder
-    );
+    
   }
 
 
