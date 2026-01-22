@@ -94,8 +94,7 @@ class _HistoryPageState extends State<HistoryPage>
         controller: _tabController,
         children: <Widget>[
           Center(
-            child: Column(
-              children: [
+            child:
                 SizedBox(
                   width: 300,
                   height: 400,
@@ -345,8 +344,7 @@ class _HistoryPageState extends State<HistoryPage>
                     curve: Curves.linear, // Optional
                   ),
                 ),
-              ],
-            ),
+              
           ),
           Center(child: Column(children: [Text('Table')])),
         ],
