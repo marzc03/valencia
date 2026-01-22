@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:valencia/components/cust_text_field.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
   final String title;
-  
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-
-
 class _HomePageState extends State<HomePage> {
-  int currentPageIndex = 0;  
+  int currentPageIndex = 0;
   final TextEditingController foodNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -23,8 +19,10 @@ class _HomePageState extends State<HomePage> {
         children: [
           Container(
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/background.png"),
-              fit: BoxFit.cover)
+              image: DecorationImage(
+                image: AssetImage("assets/background.png"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Center(
@@ -39,25 +37,26 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     CustTextField(
-                      controller: foodNameController, 
-                      hintText: 'Enter food name', 
-                      obscureText: false
+                      controller: foodNameController,
+                      hintText: 'Enter food name',
+                      obscureText: false,
                     ),
                     GestureDetector(
                       onTap: () {
-                         // Handle switch to manual input
+                        // Handle switch to manual input
                       },
-                      child: Text('Switch to manual input',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                      child: Text(
+                        'Switch to manual input',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                   )
                   ],
-                )
+                ),
               ),
-            )
+            ),
           ),
         ],
       ),
@@ -70,25 +69,37 @@ class _HomePageState extends State<HomePage> {
               currentPageIndex = value;
               Navigator.pushNamed(
                 context,
-                    value == 0
+                value == 0
                     ? '/home'
                     : value == 1
-                      ?'/today'
-                      : value == 2
-                        ? '/history'
-                        : value == 3
-                          ? '/profile'
-                          :'/home'
+                    ? '/today'
+                    : value == 2
+                    ? '/history'
+                    : value == 3
+                    ? '/profile'
+                    : '/home',
               );
             });
           },
           items: const [
-            BottomNavigationBarItem(icon: Icon (Icons.home_rounded), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.today_rounded), label: 'Today'),
-            BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: 'History'),
-            BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profile')
-          ]
-        )
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_rounded),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.today_rounded),
+              label: 'Today',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart_rounded),
+              label: 'History',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_rounded),
+              label: 'Profile',
+            ),
+          ],
+        ),
       ),
     );
   }

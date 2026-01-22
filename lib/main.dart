@@ -10,7 +10,7 @@ import 'pages/history.dart';
 import 'pages/profile.dart';
 import 'pages/settings.dart';
 
-Future <void> main() async {
+Future<void> main() async {
   /*
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -19,10 +19,12 @@ Future <void> main() async {
   //await SharedPreferencesService().init();
   runApp(Valencia());
   */
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
-    child: const Valencia(),
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const Valencia(),
+    ),
+  );
 }
 
 class Valencia extends StatelessWidget {
@@ -37,12 +39,11 @@ class Valencia extends StatelessWidget {
       home: const LoginOrRegisterPage(),
       routes: {
         '/home': (context) => const HomePage(title: 'Home'),
-        '/today': (context) => const TodayPage (title: 'Today'),
-        '/history': (context) => const HistoryPage (title: 'History'),
-        '/profile': (context) => const ProfilePage (title: 'Profile'),
-        '/settings_page': (context) => const Settings (title: 'Settings'),
+        '/today': (context) => const TodayPage(title: 'Today'),
+        '/history': (context) => const HistoryPage(title: 'History'),
+        '/profile': (context) => const ProfilePage(title: 'Profile'),
+        '/settings_page': (context) => const Settings(title: 'Settings'),
       },
     );
   }
 }
-

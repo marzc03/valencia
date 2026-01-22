@@ -125,7 +125,6 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
                         height: 300,
                         child: PieChart(
                           PieChartData(
-                            
                             sections: [
                               PieChartSectionData(
                                 value:
