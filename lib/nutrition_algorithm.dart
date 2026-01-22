@@ -90,6 +90,7 @@ class NutritionAlgorithm {
   }
 
   int caloriesNeeded (int exerciseMinutes){
+    // ignore: non_constant_identifier_names
     num BMR;
     if (sex == Sex.female){
       BMR = 10 * weight + 6.25 * height - 5 * age - 161;

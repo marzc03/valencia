@@ -5,7 +5,16 @@ import '../user.dart';
 
 //Testing
 import '../food_item.dart';
-User testUser = User(age: 17, w: 110, h: 67, activityLevel: ActivityLevel.moderatelyActive, sex: Sex.female, mode: Mode.recomposition, units: Units.imperial);
+
+User testUser = User(
+  age: 17,
+  w: 110,
+  h: 67,
+  activityLevel: ActivityLevel.moderatelyActive,
+  sex: Sex.female,
+  mode: Mode.recomposition,
+  units: Units.imperial,
+);
 NutritionAlgorithm alg = NutritionAlgorithm(testUser);
 
 FoodItem cookie = FoodItem(
@@ -13,15 +22,37 @@ FoodItem cookie = FoodItem(
   calories: 51,
   protein: 2,
   fat: 3,
+  carbs: 100,
+);
+
+FoodItem cookie2 = FoodItem(
+  name: 'cookie',
+  calories: 51,
+  protein: 2,
+  fat: 3,
+  carbs: 4,
+);
+FoodItem cookie3 = FoodItem(
+  name: 'cookie',
+  calories: 51,
+  protein: 2,
+  fat: 3,
   carbs: 4,
 );
 
-
 int exerciseMinutes = 10;
-List<int> calories = [cookie.getCalories()];
-List<num> protein = [cookie.getProtein()];
-List<num> fat = [cookie.getFat()];
-List<num> carbs = [cookie.getCarbs()];
+List<int> calories = [
+  cookie.getCalories(),
+  cookie2.getCalories(),
+  cookie3.getCalories(),
+];
+List<num> protein = [
+  cookie.getProtein(),
+  cookie2.getProtein(),
+  cookie3.getProtein(),
+];
+List<num> fat = [cookie.getFat(), cookie2.getFat(), cookie3.getFat()];
+List<num> carbs = [cookie.getCarbs(), cookie2.getCarbs(), cookie3.getCarbs()];
 
 num sum(List<num> input) {
   //probably should be moved to home or validator thingt point
@@ -86,113 +117,186 @@ class _TodayPageState extends State<TodayPage> with TickerProviderStateMixin {
             child: Center(
               child: Wrap(
                 children: [
-                  Column(children: [
-                  Text('Overall'),
-                  SizedBox(
-                    width: 300,
-                    height: 300,
-                    child: PieChart(
-                      PieChartData(
-                        sections: [
-                          PieChartSectionData(
-                            value: (sum(protein) * 4 / sumCal(calories) * 100),
-                            title: 'Protein',
-                            color: Colors.red,
+                  Column(
+                    children: [
+                      Text('Overall'),
+                      SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: PieChart(
+                          PieChartData(
+                            
+                            sections: [
+                              PieChartSectionData(
+                                value:
+                                    (sum(protein) * 4 / sumCal(calories) * 100),
+                                title: 'Protein',
+                                color: Colors.red,
+                              ),
+                              PieChartSectionData(
+                                value: (sum(fat) * 9 / sumCal(calories) * 100),
+                                title: 'Fat',
+                                color: Colors.yellow,
+                              ),
+                              PieChartSectionData(
+                                value:
+                                    (sum(carbs) * 4 / sumCal(calories) * 100),
+                                title: 'Carbs',
+                                color: Colors.green,
+                              ),
+                            ],
+                            centerSpaceRadius: 50,
                           ),
-                          PieChartSectionData(
-                            value: (sum(fat) * 9 / sumCal(calories) * 100),
-                            title: 'Fat',
-                            color: Colors.yellow,
-                          ),
-                          PieChartSectionData(
-                            value: (sum(carbs) * 4 / sumCal(calories) * 100),
-                            title: 'Carbs',
-                            color: Colors.green,
-                          ),
-                        ],
-                        centerSpaceRadius: 50,
+                          duration: Duration(milliseconds: 150), // Optional
+                          curve: Curves.linear, // Optional
+                        ),
                       ),
-                      duration: Duration(milliseconds: 150), // Optional
-                      curve: Curves.linear, // Optional
-                    ),
+                    ],
                   ),
-                  ]),
-                  Column(children: [
-                  Text('Protein'),
-                  SizedBox(
-                    width: 300,
-                    height: 300,
-                    child: PieChart(
-                      PieChartData(
-                        sections: [
-                          PieChartSectionData(
-                            color: Colors.red,
+                  Column(
+                    children: [
+                      Text('Calories'),
+                      SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: PieChart(
+                          PieChartData(
+                            sections: [
+                              PieChartSectionData(
+                                value:
+                                    (sumCal(calories) /
+                                    alg.caloriesNeeded(exerciseMinutes) *
+                                    100),
+                                color: const Color.fromARGB(255, 54, 86, 244),
+                                title:
+                                    '${(sumCal(calories) / alg.caloriesNeeded(exerciseMinutes) * 100).toInt()}%',
+                              ),
+                              PieChartSectionData(
+                                value:
+                                    (100 -
+                                    (sum(calories) /
+                                        alg.caloriesNeeded(exerciseMinutes) *
+                                        100)),
+                                color: Colors.grey,
+                                title: '',
+                              ),
+                            ],
+                            centerSpaceRadius: 50,
                           ),
-                          PieChartSectionData(
-                            value:
-                                (1 - (sum(protein) / alg.proteinNeeded(exerciseMinutes) * 100)),
-                            color: Colors.grey,
-                          ),
-                        ],
-                        centerSpaceRadius: 50,
+                          duration: Duration(milliseconds: 150), // Optional
+                          curve: Curves.linear, // Optional
+                        ),
                       ),
-                      duration: Duration(milliseconds: 150), // Optional
-                      curve: Curves.linear, // Optional
-                    ),
+                    ],
                   ),
-                  ]),
-                  Column(children: [
-                  Text('Fat'),
-                  SizedBox(
-                    width: 300,
-                    height: 300,
-                    child: PieChart(
-                      PieChartData(
-                        sections: [
-                          PieChartSectionData(
-                            value: (sum(fat) / alg.fatNeeded(exerciseMinutes) * 100),
-                        
-                            color: Colors.yellow,
+                  Column(
+                    children: [
+                      Text('Protein'),
+                      SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: PieChart(
+                          PieChartData(
+                            sections: [
+                              PieChartSectionData(
+                                color: Colors.red,
+                                value:
+                                    (sum(protein) /
+                                    alg.proteinNeeded(exerciseMinutes) *
+                                    100),
+                                title:
+                                    '${(sum(protein) / alg.proteinNeeded(exerciseMinutes) * 100).toInt()}%',
+                              ),
+                              PieChartSectionData(
+                                value:
+                                    (100 -
+                                    (sum(protein) /
+                                        alg.proteinNeeded(exerciseMinutes) *
+                                        100)),
+                                color: Colors.grey,
+                                title: '',
+                              ),
+                            ],
+                            centerSpaceRadius: 50,
                           ),
-                          PieChartSectionData(
-                            value: (1 - (sum(fat) / alg.fatNeeded(exerciseMinutes) * 100)),
-                       
-                            color: Colors.grey,
-                          ),
-                        ],
-                        centerSpaceRadius: 50,
+                          duration: Duration(milliseconds: 150), // Optional
+                          curve: Curves.linear, // Optional
+                        ),
                       ),
-                      duration: Duration(milliseconds: 150), // Optional
-                      curve: Curves.linear, // Optional
-                    ),
-                  ),]),
-                  Column(children: [
-                  Text('Carbs'),
-                  SizedBox(
-                    width: 300,
-                    height: 300,
-                    child: PieChart(
-                      PieChartData(
-                        sections: [
-                          PieChartSectionData(
-                            value: (sum(carbs) / alg.carbsNeeded(exerciseMinutes) * 100),
-      
-                            color: Colors.green,
-                          ),
-                          PieChartSectionData(
-                            value:
-                                (1 - (sum(carbs) /alg.carbsNeeded(exerciseMinutes) * 100)),
-                            title: '',
-                            color: Colors.grey,
-                          ),
-                        ],
-                        centerSpaceRadius: 50,
-                      ),
-                      duration: Duration(milliseconds: 150), // Optional
-                      curve: Curves.linear, // Optional
-                    ),
+                    ],
                   ),
-                  ])
+                  Column(
+                    children: [
+                      Text('Fat'),
+                      SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: PieChart(
+                          PieChartData(
+                            sections: [
+                              PieChartSectionData(
+                                value:
+                                    (sum(fat) /
+                                    alg.fatNeeded(exerciseMinutes) *
+                                    100),
+                                color: Colors.yellow,
+                                title:
+                                    '${(sum(fat) / alg.fatNeeded(exerciseMinutes) * 100).toInt()}%',
+                              ),
+                              PieChartSectionData(
+                                value:
+                                    (100 -
+                                    (sum(fat) /
+                                        alg.fatNeeded(exerciseMinutes) *
+                                        100)),
+                                title: '',
+                                color: Colors.grey,
+                              ),
+                            ],
+                            centerSpaceRadius: 50,
+                          ),
+                          duration: Duration(milliseconds: 150), // Optional
+                          curve: Curves.linear, // Optional
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text('Carbs'),
+                      SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: PieChart(
+                          PieChartData(
+                            sections: [
+                              PieChartSectionData(
+                                value:
+                                    (sum(carbs) /
+                                    alg.carbsNeeded(exerciseMinutes) *
+                                    100),
+                                color: Colors.green,
+                                title:
+                                    '${(sum(carbs) / alg.carbsNeeded(exerciseMinutes) * 100).toInt()}%',
+                              ),
+                              PieChartSectionData(
+                                value:
+                                    (100 -
+                                    (sum(carbs) /
+                                        alg.carbsNeeded(exerciseMinutes) *
+                                        100)),
+                                title: '',
+                                color: Colors.grey,
+                              ),
+                            ],
+                            centerSpaceRadius: 50,
+                          ),
+                          duration: Duration(milliseconds: 150), // Optional
+                          curve: Curves.linear, // Optional
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
